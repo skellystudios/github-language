@@ -3,6 +3,7 @@ Github Language
 This is a small command-line utility that allows you to determine a user's favourite language based on their github commits.
 
 
+
 Installation
 -----------
 
