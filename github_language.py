@@ -16,8 +16,8 @@ from collections import defaultdict, Counter
 import logging
 
 
-GITHUB_USERNAME = 'skellystudios'
-GITHUB_PASSWORD_OR_TOKEN = 'b80bb5b5bd8ddf6105711fea86c73b59bfd5c7ee'
+GITHUB_USERNAME = 'USERNAME'
+GITHUB_PASSWORD_OR_TOKEN = 'TOKEN_HERE'
 
 auth = (GITHUB_USERNAME, GITHUB_PASSWORD_OR_TOKEN)
 
@@ -30,14 +30,17 @@ def main(args, help):
 	except:
 		logging.error("Can't retrieve data for user %s - check your token/password is correct and you are connected to the internet." % username)
 		print ""
-
+		return ""
 	pick = pick_favourite_languages(languages)
-	print pick 
+	print pick
+	return pick
+
+	
 
 def pick_favourite_languages(languages):
 	
 	if len(languages) < 1:
-		logging.error("No repositories with tagged languages")
+		logging.warn("No repositories with tagged languages")
 		return ""
 
 	top_count = sorted(languages.values())[-1]
